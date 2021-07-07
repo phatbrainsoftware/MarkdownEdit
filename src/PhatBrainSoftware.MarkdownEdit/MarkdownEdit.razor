@@ -1,0 +1,39 @@
+﻿@inherits InputBase<string>
+
+<div class="d-block">
+
+    <small class="d-block mb-2">Support basic markdown syntax, see <a href="https://www.markdownguide.org/basic-syntax">https://www.markdownguide.org/basic-syntax for more help.</a></small>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertTextAsync("# "))>H1</button>
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertTextAsync("## "))>H2</button>
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertTextAsync("### "))>H3</button>
+    </div>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-link" @onclick=@(() => this.WrapTextAsync("**"))>Bold</button>
+        <button type="button" class="btn btn-link" @onclick=@(() => this.WrapTextAsync("*"))>Italic</button>
+    </div>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertTextAsync("> "))>Quote</button>
+    </div>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertTextAsync("* "))>Bullet</button>
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertTextAsync("1. "))>Outline</button>
+    </div>
+
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertLinkAsync())>Link</button>
+        <button type="button" class="btn btn-link" @onclick=@(() => this.InsertImageAsync())>Image</button>
+    </div>
+
+    <textarea class="form-control mb-2 @CssClass" rows="10" id=@this.Id @bind=@CurrentValue></textarea>
+
+    <small class="d-block mb-4"><strong>**bold**</strong> <em>*italic*</em> >quote</small>
+
+    <div class="html">
+        @((MarkupString) this.Preview)
+    </div>
+</div>

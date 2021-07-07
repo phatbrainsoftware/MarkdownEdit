@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<PhatBrainSoftware.MarkdownEdit.SayHello />
+
+<EditForm Model=@this.Model>
+
+    <label>Enter some text:</label>
+    <PhatBrainSoftware.MarkdownEdit.MarkdownEdit @bind-Value=@this.Model.Text />
+
+</EditForm>
+
+@code
+{
+    public class TestModel
+    {
+        public string Text { get; set; } = "Hello, world!";
+    }
+
+    public TestModel Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        this.Model = new TestModel();
+    }
+}
