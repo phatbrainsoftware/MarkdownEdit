@@ -15,6 +15,12 @@ namespace PhatBrainSoftware.MarkdownEdit
         [Parameter]
         public RenderFragment Toolbar { get; set; }
 
+        [Parameter]
+        public bool ShowHelp { get; set; } = true;
+
+        [Parameter]
+        public bool ShowPreview { get; set; } = true;
+
         protected string Preview => Markdown.ToHtml(this.CurrentValue ?? string.Empty, this.MarkdownPipeline);
 
         public string Id { get; private set; }
@@ -22,10 +28,6 @@ namespace PhatBrainSoftware.MarkdownEdit
         // https://docs.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-5.0#javascript-isolation-in-javascript-modules
 
         protected IJSObjectReference Module { get; set; }
-
-        public bool ShowHelp { get; set; } = true;
-
-        public bool ShowPreview { get; set; } = true;
 
         [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         private MarkdownPipeline MarkdownPipeline => new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
@@ -62,9 +64,9 @@ namespace PhatBrainSoftware.MarkdownEdit
 
         public async Task InsertLinkAsync()
         {
-            var link = await this.Module.InvokeAsync<string>("prompt", "Enter the url to the link, e.g., http://teamaloo.com:");
+            var link = await this.Module.InvokeAsync<string>("showPrompt", "Enter the url to the link, e.g., http://teamaloo.com:");
 
-            var caption = await this.Module.InvokeAsync<string>("prompt", "Enter the title for the link, e.g., Teamaloo:");
+            var caption = await this.Module.InvokeAsync<string>("showPrompt", "Enter the title for the link, e.g., Teamaloo:");
 
             if (!string.IsNullOrWhiteSpace(link))
             {
@@ -81,9 +83,9 @@ namespace PhatBrainSoftware.MarkdownEdit
 
         public async Task InsertImageAsync()
         {
-            var link = await this.Module.InvokeAsync<string>("prompt", "Enter the url to the image, e.g., http://teamaloo.com/teamaloo.png:");
+            var link = await this.Module.InvokeAsync<string>("showPrompt", "Enter the url to the image, e.g., http://teamaloo.com/teamaloo.png:");
 
-            var caption = await this.Module.InvokeAsync<string>("prompt", "Enter the title for the image, e.g., Teamaloo:");
+            var caption = await this.Module.InvokeAsync<string>("showPrompt", "Enter the title for the image, e.g., Teamaloo:");
 
             if (!string.IsNullOrWhiteSpace(link))
             {

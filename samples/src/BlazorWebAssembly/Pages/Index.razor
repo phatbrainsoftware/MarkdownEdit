@@ -6,7 +6,7 @@
 
     @*https://icons.getbootstrap.com/#usage*@
 
-    <MarkdownEdit @ref=@MarkdownEdit @bind-Value=@this.Model.Text>
+    <MarkdownEdit @ref=@MarkdownEdit @bind-Value=@this.Model.Text ShowHelp=false>
         <Toolbar>
             <ToolbarButtonGroup>
                 <ToolbarButton OnClickCallback=@(() => this.MarkdownEdit.InsertTextAsync("# "))><i class="bi-type-h1"></i></ToolbarButton>

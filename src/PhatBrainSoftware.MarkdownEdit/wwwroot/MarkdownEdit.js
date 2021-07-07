@@ -25,3 +25,7 @@ export function wrapText(id, tag) {
 
     return element.value;
 }
+
+export function showPrompt(message) {
+    return prompt(message, 'Type anything here');
+}

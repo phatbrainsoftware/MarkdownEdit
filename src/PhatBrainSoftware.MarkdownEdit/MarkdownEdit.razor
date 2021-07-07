@@ -1,6 +1,6 @@
 ﻿@inherits InputBase<string>
 
-<div class="markdownedit d-block">
+<div class="markdownedit">
 
     @if (this.Toolbar != null)
     {
@@ -9,11 +9,11 @@
         </div>
     }
 
-    <textarea class="form-control @CssClass" rows="10" id=@this.Id @bind=@CurrentValue></textarea>
+    <textarea id=@this.Id class="form-control @CssClass" @bind=@CurrentValue rows="10"></textarea>
 
     @if (this.ShowHelp)
     {
-        <small class="d-block mt-2">Support basic markdown syntax, see <a href="https://www.markdownguide.org/basic-syntax">https://www.markdownguide.org/basic-syntax for more help.</a></small>
+        <div class="text-muted mt-2">Support basic markdown syntax, see <a href="https://www.markdownguide.org/basic-syntax">https://www.markdownguide.org/basic-syntax for more help.</a></div>
     }
 
     @if (this.ShowPreview)
@@ -22,4 +22,5 @@
             @((MarkupString)this.Preview)
         </div>
     }
+
 </div>
