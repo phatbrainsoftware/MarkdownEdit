@@ -83,7 +83,3 @@ See code in the [Index.razor](samples/src/BlazorWebAssembly/Pages/Index.razor) p
     }
 }
 ```
-
-### Screenshot
-
-![Screenshot](https://github.com/phatbrainsoftware/MarkdownEdit/raw/main/Screenshot1.jpg "Screenshot")
