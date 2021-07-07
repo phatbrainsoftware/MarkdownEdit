@@ -2,10 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Markdown Text Editor for Blazor applications - Uses Bootstrap, Fontawesome, and Markdig.</Description>
+    <PackageProjectUrl>https://github.com/phatbrainsoftware/MarkdownEdit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/phatbrainsoftware/MarkdownEdit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Blazor</PackageTags>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="logo.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>
