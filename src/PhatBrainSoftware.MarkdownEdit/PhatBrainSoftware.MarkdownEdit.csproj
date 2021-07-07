@@ -4,23 +4,32 @@
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Markdown Text Editor for Blazor applications - Uses Bootstrap, Fontawesome, and Markdig.</Description>
+    
+    <Authors>Matt Ruma</Authors>
+    <Company></Company>
+    <Copyright>Copyright 2021 (c) Matt Ruma. All rights reserved.</Copyright>
+
+    <PackageId>PhatBrainSoftware.MarkdownEdit</PackageId>
+    <PackageTags>Blazored;Blazor;Razor;Components;Modal;Dialogue;ASP.NET Core;CSharp;Web</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/phatbrainsoftware/MarkdownEdit</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/phatbrainsoftware/MarkdownEdit</RepositoryUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Blazor</PackageTags>
-    <PackageIcon>logo.png</PackageIcon>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/phatbrainsoftware/MarkdownEdit</RepositoryUrl>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    
   </PropertyGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <None Include="logo.png" Pack="true" Visible="false" PackagePath="" />
-    <None Include="LICENSE" Pack="true" PackagePath=""/>
-  </ItemGroup>
 
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Markdig" Version="0.25.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.7" />
