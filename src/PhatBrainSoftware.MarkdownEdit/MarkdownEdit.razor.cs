@@ -12,13 +12,20 @@ namespace PhatBrainSoftware.MarkdownEdit
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
 
-        public string Preview => Markdown.ToHtml(this.CurrentValue ?? string.Empty, this.MarkdownPipeline);
+        [Parameter]
+        public RenderFragment Toolbar { get; set; }
+
+        protected string Preview => Markdown.ToHtml(this.CurrentValue ?? string.Empty, this.MarkdownPipeline);
 
         public string Id { get; private set; }
 
         // https://docs.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/call-javascript-from-dotnet?view=aspnetcore-5.0#javascript-isolation-in-javascript-modules
 
-        private IJSObjectReference Module { get; set; }
+        protected IJSObjectReference Module { get; set; }
+
+        public bool ShowHelp { get; set; } = true;
+
+        public bool ShowPreview { get; set; } = true;
 
         [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>")]
         private MarkdownPipeline MarkdownPipeline => new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
@@ -39,21 +46,21 @@ namespace PhatBrainSoftware.MarkdownEdit
             }
         }
 
-        protected async Task InsertTextAsync(string text)
+        public async Task InsertTextAsync(string text)
         {
             this.CurrentValue = await this.Module.InvokeAsync<string>("insertText", this.Id, text);
 
             this.StateHasChanged();
         }
 
-        protected async Task WrapTextAsync(string tag)
+        public async Task WrapTextAsync(string tag)
         {
             this.CurrentValue = await this.Module.InvokeAsync<string>("wrapText", this.Id, tag);
 
             this.StateHasChanged();
         }
 
-        protected async Task InsertLinkAsync()
+        public async Task InsertLinkAsync()
         {
             var link = await this.Module.InvokeAsync<string>("prompt", "Enter the url to the link, e.g., http://teamaloo.com:");
 
@@ -72,7 +79,7 @@ namespace PhatBrainSoftware.MarkdownEdit
             }
         }
 
-        protected async Task InsertImageAsync()
+        public async Task InsertImageAsync()
         {
             var link = await this.Module.InvokeAsync<string>("prompt", "Enter the url to the image, e.g., http://teamaloo.com/teamaloo.png:");
 

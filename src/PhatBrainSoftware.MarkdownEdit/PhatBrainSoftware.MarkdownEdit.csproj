@@ -5,16 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="README.md" />
-    <None Remove="SayHello.razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="README.md" />
-    <Content Include="SayHello.razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 

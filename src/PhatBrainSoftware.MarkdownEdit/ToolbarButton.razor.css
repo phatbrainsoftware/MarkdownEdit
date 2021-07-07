@@ -1,0 +1,13 @@
+﻿.btn-link {
+    color: #333;
+}
+
+    .btn-link:hover {
+        color: #000;
+    }
+    
+.btn-check:focus+.btn, 
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
