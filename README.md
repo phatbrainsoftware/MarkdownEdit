@@ -37,8 +37,6 @@ See code in the [Index.razor](samples/src/BlazorWebAssembly/Pages/Index.razor) p
 
 <EditForm Model=@this.Model>
 
-    @*https://icons.getbootstrap.com/#usage*@
-
     <MarkdownEdit @ref=@MarkdownEdit @bind-Value=@this.Model.Text ShowHelp=false>
         <Toolbar>
             <ToolbarButtonGroup>
